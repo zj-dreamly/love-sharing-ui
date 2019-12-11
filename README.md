@@ -1,23 +1,9 @@
-# itmuch-miniapp
-本项目是 `爱分享` 小程序的前端代码。
-
->
-> 该前端代码的主要作用是帮助大家感受小程序开发是个怎么回事，另外帮助大家快速理解视频中的业务。
+本项目是 `爱分享1024` 小程序的前端代码。
 
 ## 技术选型 & 鸣谢
 
 * [mpvue](https://github.com/Meituan-Dianping/mpvue)
 * [vant-weapp](https://github.com/youzan/vant-weapp)
-
-## 预览 & 体验
-
-扫描如下小程序码即可。
-
-| 首页 | 个人中心 | 投稿 | 扫我体验 |
-| ------------------------------------------------------------ | ---- | ---- | ---- |
-| ![小程序](images/preview-1.jpg) | ![小程序](images/preview-2.jpg)     |   ![小程序](images/preview-3.jpg)   | ![小程序](images/itmuch.png)     |
-
-
 
 ## 使用说明
 
@@ -51,7 +37,7 @@ git clone https://github.com/eacdy/itmuch-miniapp.git
 修改 `project.config.json` ，按需修改如下两行
 
 ```yaml
-"appid": "修改为你的appid", // 这里提供一个给大家测试：wx5398457df5368458
+"appid": "修改为你的appid",
 "projectname": "修改为你的项目名称，尽量用英文",
 ```
 
