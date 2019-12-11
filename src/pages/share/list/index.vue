@@ -18,27 +18,16 @@
           <ul>
             <li> > 每日签到</li>
             <li> > 投稿</li>
-            <li> > 转发</li>
+            <li> > 转发（尚未完成）</li>
             <li> > 提建议、意见（尚未完成）</li>
           </ul>
           <h3>深入交流</h3>
           <ul>
-            <li> > 技术交流群QQ群：731548893</li>
-            <li> > 技术交流微信群：加我微信，注明加微信群</li>
-            <li> > 私人微信：jumping_me
+            <li> > 私人微信：m15938266626
               <van-button type="primary" size="mini" @click="doCopyMe">复制</van-button>
             </li>
           </ul>
-          <h3>公众号(技术干货分享)</h3>
-          <div>
-            由于小程序不支持二维码识别，亲们可使用如下方式关注我的公众号：
-          </div>
-          <ul>
-            <li> > 点击<span>右上角 -> 关于IT牧场 -> 相关公众号</span>即可关注，操作简单，只需5秒！</li>
-            <li> > 公众号微信：itmuch_com
-              <van-button type="danger" size="mini" @click="doCopyGZH">复制</van-button>
-            </li>
-          </ul>
+          <h3>公众号(java泡泡糖)</h3>
         </div>
       </van-tab>
     </van-tabs>
