@@ -84,8 +84,6 @@ export const BASE_API_URL = 'http://localhost:8080';
 
 注意：**务必勾选 `不校验合法域名...` 。**
 
-![开发者工具](images/dev-tools.png)
-
 可以预览啦！
 
 ### 8. 你可能会遇到的问题
