@@ -25,12 +25,20 @@
           'GET',
           {}
         );
-        this.user = user;
-        wx.setStorageSync('user', user);
 
-        wx.showToast({
-          title: '签到成功！'
-        })
+        if(user.status === 500){
+          wx.showToast({
+            icon: 'none',
+            title: '今日已签到，请明天再来哦'
+          })
+        }else {
+          this.user = user;
+          wx.setStorageSync('user', user);
+
+          wx.showToast({
+            title: '签到成功！'
+          })
+        }
       }
     }
   };
