@@ -30,16 +30,6 @@
           <h3>公众号(java泡泡糖)</h3>
         </div>
       </van-tab>
-
-      <van-tab title="待审核" v-if="showFlag">
-        <van-notice-bar :text="notice.content"></van-notice-bar>
-        <van-search placeholder="请输入关键词" @change="onChange"/>
-        <ul>
-          <li v-for="(share_c,index) in shares_contribution" :key="index">
-            <Card :share="share_c" :key="index"></Card>
-          </li>
-        </ul>
-      </van-tab>
     </van-tabs>
   </div>
 </template>
@@ -47,7 +37,6 @@
   import Card from '@/components/card.vue';
   import {request} from "@/utils/request";
   import {NOTICE_URL, SHARE_POST_URL} from "@/utils/api";
-  import {USER_URL_ME} from "../../../utils/api";
 
   export default {
     components: {
@@ -61,7 +50,6 @@
         pageNo: 1,
         searchWord: '',
         title: '',
-        shares_contribution: '',
         showFlag: false
       }
     },
@@ -76,18 +64,6 @@
           'GET',
           {}
         );
-      },
-      async getUser() {
-        let user = await request(
-          USER_URL_ME,
-          'GET',
-          {}
-        );
-
-        if (user.roles === 'admin') {
-          console.log("当前用户权限：" + user.roles)
-          this.showFlag = true;
-        }
       },
       async fetchSharePosts(init) {
         if (init) {
@@ -118,35 +94,6 @@
         wx.hideNavigationBarLoading();
       },
 
-      async fetchSharePosts_a(init) {
-        if (init) {
-          this.pageNo = 1;
-          this.more = true;
-        }
-        wx.showNavigationBarLoading();
-        let title = this.title;
-        const sharesRemote = await request(
-          SHARE_POST_URL + '/q',
-          'GET',
-          {
-            pageNo: this.pageNo,
-            title: title,
-            type: 'NOT_YET'
-          }
-        );
-        if (sharesRemote.list.length < 10 && this.pageNo > 0) {
-          this.more = false;
-          console.log(this.more)
-        }
-        if (init) {
-          this.shares_contribution = sharesRemote.list;
-          wx.stopPullDownRefresh();
-        } else {
-          // 下拉刷新，不能直接覆盖books 而是累加
-          this.shares_contribution = this.shares_contribution.concat(sharesRemote.list)
-        }
-        wx.hideNavigationBarLoading();
-      },
       doCopyMe: function () {
         wx.setClipboardData({
           data: 'jumping_me',
@@ -179,11 +126,9 @@
       }
       this.pageNo = this.pageNo + 1;
       this.fetchSharePosts();
-      this.fetchSharePosts_a()
     },
     onPullDownRefresh() {
       this.fetchSharePosts(true);
-      this.fetchSharePosts_a(true);
     },
     mounted() {
       this.findAllNotices();
@@ -191,7 +136,7 @@
     },
     onShow() {
       this.fetchSharePosts(true);
-      this.fetchSharePosts_a(true);
+      this.findAllNotices();
     }
   }
 </script>
