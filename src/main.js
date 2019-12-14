@@ -24,9 +24,9 @@ Vue.mixin({
       {}
     );
     return {
-      title: 'IT牧场',
+      title: '爱分享1024',
       path: 'pages/share/list/main',
-      imageUrl: '/static/img/xuanchuan.png'
+      imageUrl: 'http://cdn4.synconize.com/xc.jpg'
     }
   }
 });
